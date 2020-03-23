@@ -13,7 +13,6 @@ coreschema==0.0.4
 cryptography==2.8
 cycler==0.10.0
 daphne==2.4.1
-dbus-python==1.2.12
 decorator==4.3.0
 django-rest-swagger==2.2.0
 django-tables2==2.2.0
