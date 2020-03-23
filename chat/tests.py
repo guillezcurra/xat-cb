@@ -23,10 +23,10 @@ class ChatTests(ChannelsLiveServerTestCase):
 
     def test_when_chat_message_posted_then_seen_by_everyone_in_same_room(self):
         try:
-            self._enter_chat_room('barrus')
+            self._enter_room('barrus')
 
             self._open_new_window()
-            self._enter_chat_room('tois')
+            self._enter_room('tois')
 
             self._switch_to_window(0)
             self._post_message('hello')
@@ -42,10 +42,10 @@ class ChatTests(ChannelsLiveServerTestCase):
 
     def test_when_chat_message_posted_then_not_seen_by_anyone_in_different_room(self):
         try:
-            self._enter_chat_room('barrus')
+            self._enter_room('barrus')
 
             self._open_new_window()
-            self._enter_chat_room('tois')
+            self._enter_room('tois')
 
             self._switch_to_window(0)
             self._post_message('hello')
@@ -65,7 +65,7 @@ class ChatTests(ChannelsLiveServerTestCase):
 
     # === Utility ===
 
-    def _enter_chat_room(self, room_name):
+    def _enter_room(self, room_name):
         self.driver.get(self.live_server_url + '/chat/')
         ActionChains(self.driver).send_keys(room_name + '\n').perform()
         WebDriverWait(self.driver, 2).until(lambda _:
