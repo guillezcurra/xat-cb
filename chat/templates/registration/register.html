@@ -1,60 +1,21 @@
 
 {% load widget_tweaks %}
 {% block content %}
-
-<section class="hero is-success is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-
-      <div class="columns">
-        <div class="column is-offset-2 is-8">
-          <h2 class="subtitle">
-            Registre
-          </h2>
-
-          <form action="{% url 'register' %}" method="POST" autocomplete="off">
-            {% csrf_token %}
-
-            <div class="field">
-              <label for="{{ form.username.id_for_label }}" class="label">
-                Nom d'usuari:
-              </label>
-              <div class="control">
-                {{ form.username|add_class:"input" }}
-              </div>
-              <p class="help is-danger">{{ form.username.errors }}</p>
-            </div>
-
-            <div class="field">
-              <label for="{{ form.password1.id_for_label }}" class="label">
-                Clau d'accés:
-              </label>
-              <div class="control">
-                {{ form.password1|add_class:"input" }}
-              </div>
-              <p class="help is-danger">{{ form.password1.errors }}</p>
-            </div>
-
-            <div class="field">
-              <label for="{{ form.password2.id_for_label }}" class="label">
-                Confirmació de clau d'accés:
-              </label>
-              <div class="control">
-                {{ form.password2|add_class:"input" }}
-              </div>
-              <p class="help is-danger">{{ form.password2.errors }}</p>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <button class="button is-link">Enregistra't</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Enregistra't</button>
+  </form>
 {% endblock %}

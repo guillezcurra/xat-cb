@@ -8,17 +8,23 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.views import View
 
-class RegisterView(View):
-    def get(self, request):
-        return render(request, 'registration/register.html', { 'form': UserCreationForm() })
+from django.contrib.auth import login, authenticate
 
-    def post(self, request):
-        form = UserCreationForm(request.POST)
+from chat.forms import SignUpForm
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            return redirect(reverse('login'))
-
-        return render(request, 'registration/register.html', { 'form': form })
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('inici')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/register.html', {'form': form})
 
 def home(request):
     return render(request, 'chat/inici.html', {})

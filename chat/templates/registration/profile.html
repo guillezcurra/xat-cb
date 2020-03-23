@@ -5,7 +5,7 @@
     <title>Sales de xat de l'AEiG Conxita Busquets</title>
 </head>
 <body>
-    Benvingut, 
+    Benvingut,
     A quina sala de xat vols entrar?<br>
     <!-- <input id="room-name-input" type="text" size="100"><br> -->
     <select form="rooms" id="room-name-input" autofocus>
@@ -28,10 +28,7 @@
 
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
-            var u1 = document.querySelector('#camp-usuari').value;
-            if (u1) {
               window.location.pathname = '/chat/' + roomName + '/';
-            }
         };
     </script>
 </body>

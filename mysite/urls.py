@@ -23,6 +23,6 @@ urlpatterns = [
     path('',views.home,name='inici'),
     path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
-    path('register/', views.RegisterView.as_view(), name='register'),
+    path('register/', views.signup, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
