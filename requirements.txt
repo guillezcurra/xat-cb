@@ -13,7 +13,6 @@ constantly==15.1.0
 coreapi==2.3.3
 coreschema==0.0.4
 cryptography==2.8
-cupshelpers==1.0
 cycler==0.10.0
 daphne==2.4.1
 dbus-python==1.2.12
