@@ -83,7 +83,7 @@ reportlab==3.5.23
 requests==2.21.0
 requests-unixsocket==0.1.5
 roman==2.0.0
-rope==0.10.5
+rope==0.11.0
 ruamel.yaml==0.16.5
 ruamel.yaml.clib==0.2.0
 scipy==1.2.2
