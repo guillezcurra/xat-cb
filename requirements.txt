@@ -82,7 +82,6 @@ qtconsole==4.3.1
 QtPy==1.3.1
 rdflib==4.2.2
 redis==2.10.6
-rencode==1.0.5
 reportlab==3.5.23
 requests==2.21.0
 requests-oauthlib==1.3.0
