@@ -1,0 +1,34 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Sales de xat de l'AEiG Conxita Busquets</title>
+</head>
+<body>
+    A quina sala de xat vols entrar?<br>
+    <!-- <input id="room-name-input" type="text" size="100"><br> -->
+    <select form="rooms" id="room-name-input" autofocus>
+      <option value="barrus">Barrufets</option>
+      <option value="tois">Tois i Daines</option>
+      <option value="ring">Ràngers i Noies Guia</option>
+      <option value="pic">Pioners i caravel·les</option>
+      <option value="truc">Truc</option>
+    </select>
+    <input id="room-name-submit" type="button" value="Entra-hi">
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>
