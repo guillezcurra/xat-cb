@@ -1,8 +1,24 @@
-from django.shortcuts import render
-from .models import Room, Usuari
+from django.shortcuts import render, redirect, reverse
+from .models import Room
 
 # Create your views here.
 # vista principal
+
+from django.contrib.auth.forms import UserCreationForm
+
+from django.views import View
+
+class RegisterView(View):
+    def get(self, request):
+        return render(request, 'registration/register.html', { 'form': UserCreationForm() })
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect(reverse('login'))
+
+        return render(request, 'registration/register.html', { 'form': form })
 
 def home(request):
     return render(request, 'chat/inici.html', {})

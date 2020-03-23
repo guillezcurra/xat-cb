@@ -17,9 +17,12 @@ from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
 from chat import views
+from django.contrib.auth.models import User
 
 urlpatterns = [
     path('',views.home,name='inici'),
     path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
+    path('register/', views.RegisterView.as_view(), name='register'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

@@ -6,10 +6,6 @@
     <title>Sales de xat de l'AEiG Conxita Busquets</title>
 </head>
 <body>
-    <div>
-    <label for="camp-usuari">El teu nom:</label>
-    <input id="camp-usuari" type="text" required>
-    </div>
     A quina sala de xat vols entrar?<br>
     <!-- <input id="room-name-input" type="text" size="100"><br> -->
     <select form="rooms" id="room-name-input" autofocus>
@@ -22,12 +18,7 @@
     <input id="room-name-submit" type="button" value="Entra-hi">
 
     <script>
-        document.querySelector('#camp-usuari').focus();
-        document.querySelector('#camp-usuari').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
-            }
-        };
+
         document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return

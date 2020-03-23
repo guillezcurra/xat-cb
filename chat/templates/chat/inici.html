@@ -6,12 +6,15 @@
 </head>
 <body>
     Això és el xat de l'AEiG Conxita Busquets<br>
-    <input id="entrada" type="button" value="Continua">
+    <input id="registre" type="button" value="Enregistra't">
+    <input id="inici-sessio" type="button" value="Inicia sessió">
 
     <script>
-
-        document.querySelector('#entrada').onclick = function(e) {
-            window.location.pathname = '/chat/';
+        document.querySelector('#registre').onclick = function(e) {
+            window.location.pathname = '/register';
+        };
+        document.querySelector('#inici-sessio').onclick = function(e) {
+            window.location.pathname = '/accounts/login';
         };
     </script>
 </body>

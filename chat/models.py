@@ -6,9 +6,6 @@ class Room(models.Model):
     name = models.TextField()
     label = models.SlugField(unique=True)
 
-class Usuari(models.Model):
-    name = models.TextField()
-    label = models.SlugField(unique=True)
 
 class Message(models.Model):
     room = models.ForeignKey(Room, related_name='messages',on_delete=models.CASCADE)

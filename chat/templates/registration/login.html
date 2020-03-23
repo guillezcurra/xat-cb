@@ -1,0 +1,36 @@
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>El teu usuari i clau d'accés no coincideixen amb les nostres dades. Torna a introduir-los.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Si us plau, inicia sessió per a veure aquesta pàgina.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>Nom d'usuari: </td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>Clau d'accés: </td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="Inicia Sessió" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Has oblidat la clau d'accés?</a></p>
+
+{% endblock %}
