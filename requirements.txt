@@ -69,7 +69,6 @@ pyOpenSSL==19.0.0
 pyparsing==2.2.0
 PyQt5==5.12.3
 pyRFC3339==1.1
-python-apt==1.9.0+ubuntu1.3
 python-dateutil==2.7.3
 python-debian==0.1.36
 python-libtorrent==1.1.13
