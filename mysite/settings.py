@@ -74,16 +74,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
-        'DATABASE_URL': 'postgres:///mysite',
-        'ATOMIC_REQUESTS': True,
-        'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'db_test.postgresql')
-        }
+        'NAME': 'xatcau',
+        'USER': 'mwgpknitypzdjo',
+        'PASSWORD': 'fd1b438dc1f80ac925e98cb212e7e598feceda237755ce5b4a7c9c6e8516d053',
+        'HOST': 'ec2-3-213-192-58.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
