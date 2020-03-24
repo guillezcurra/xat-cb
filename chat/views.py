@@ -5,7 +5,7 @@ from .models import Room
 # vista principal
 
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.decorators import login_required
 from django.views import View
 
 from django.contrib.auth import login, authenticate
@@ -29,10 +29,12 @@ def signup(request):
 def home(request):
     return render(request, 'chat/inici.html', {})
 
+@login_required
 def index(request):
 
     return render(request, 'chat/index.html', {})
 
+@login_required
 def room(request, room_name):
     # If the room with the given label doesn't exist, automatically create it
     # upon first visit (a la etherpad).
