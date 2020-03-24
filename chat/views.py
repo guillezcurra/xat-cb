@@ -3,7 +3,7 @@ from .models import Room
 
 # Create your views here.
 # vista principal
-
+from django.contrib.auth import get_user
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views import View
@@ -31,15 +31,18 @@ def home(request):
 
 @login_required
 def index(request):
+    usuari = get_user(request)
 
-    return render(request, 'chat/index.html', {})
+    return render(request, 'chat/index.html', {
+    'usuari' : usuari,
+    })
 
 @login_required
 def room(request, room_name):
     # If the room with the given label doesn't exist, automatically create it
     # upon first visit (a la etherpad).
     room, created = Room.objects.get_or_create(label=room_name)
-
+    usuari = get_user(request)
     messages = reversed(room.messages.order_by('-timestamp')[:50])
 
     if room_name == 'barrus':
@@ -56,4 +59,5 @@ def room(request, room_name):
         'room_name': room_name,
         'nom_unitat': val,
         'messages':messages,
+        'usuari' : usuari,
     })

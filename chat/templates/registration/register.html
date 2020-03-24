@@ -1,12 +1,24 @@
 
 {% load widget_tweaks %}
 {% block content %}
-  <h2>Sign up</h2>
+  <h2>Registre</h2>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
       <p>
-        {{ field.label_tag }}<br>
+        {% if field.label_tag == "Username:"%}
+        Nom d'usuari:<br>
+        {% elif field.label_tag == "First name:"%}
+        Nom:<br>
+        {% elif field.label_tag == "Last name:"%}
+        Cognom:<br>
+        {% elif field.label_tag == "Email:"%}
+        Correu electrònic:<br>
+        {% elif field.label_tag == "Password:"%}
+        Clau d'accés:<br>
+        {% else %}
+        Confirmació de clau d'accés:<br>
+        {% endif %}
         {{ field }}
         {% if field.help_text %}
           <small style="color: grey">{{ field.help_text }}</small>
