@@ -6,22 +6,24 @@
     {% csrf_token %}
     {% for field in form %}
       <p>
-        {% if field.label_tag == "Username:"%}
+        {% if field.name == "username"%}
         Nom d'usuari:<br>
-        {% elif field.label_tag == "First name:"%}
+        {% elif field.name == "first_name"%}
         Nom:<br>
-        {% elif field.label_tag == "Last name:"%}
+        {% elif field.name == "last_name"%}
         Cognom:<br>
-        {% elif field.label_tag == "Email:"%}
+        {% elif field.name == "email"%}
         Correu electrònic:<br>
-        {% elif field.label_tag == "Password:"%}
+        {% elif field.name == "password1"%}
         Clau d'accés:<br>
         {% else %}
         Confirmació de clau d'accés:<br>
         {% endif %}
         {{ field }}
         {% if field.help_text %}
+          {% if field.name != "username" or field.name != "password2"%}
           <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
         {% endif %}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
