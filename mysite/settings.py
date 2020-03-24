@@ -118,7 +118,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+redis_host = os.environ.get('REDIS_HOST', 'localhost')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -128,14 +128,16 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 ASGI_APPLICATION = 'mysite.routing.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'
 # mysite/settings.py
 # Channels
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            "hosts": [redis_host, 'localhost')],
         },
+        "ROUTING": "mysite.routing.channel_routing",
     },
 }
 
