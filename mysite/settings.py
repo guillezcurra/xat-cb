@@ -139,5 +139,22 @@ CHANNEL_LAYERS = {
     },
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        # By default use Docker Compose Redis instance.
+        'LOCATION': os.getenv('REDIS_URL', 'redis:6379'),
+    },
+}
+
+# https://github.com/rq/django-rq#support-for-django-redis-and-django-redis-cache
+RQ_QUEUES = {
+    'default': {
+        'USE_REDIS_CACHE': 'default',
+        'DEFAULT_TIMEOUT': 360,
+    },
+}
+RQ_SHOW_ADMIN_LINK = True
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = '/chat'
