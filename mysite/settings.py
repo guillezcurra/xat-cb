@@ -128,14 +128,13 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 ASGI_APPLICATION = 'mysite.routing.application'
-WSGI_APPLICATION = 'mysite.wsgi.application'
 # mysite/settings.py
 # Channels
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [redis_host, 'localhost')],
+            "hosts": [(redis_host, 'localhost')],
         },
         "ROUTING": "mysite.routing.channel_routing",
     },
