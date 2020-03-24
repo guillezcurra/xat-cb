@@ -136,7 +136,6 @@ CHANNEL_LAYERS = {
         'CONFIG': {
             "hosts": [(redis_host, 'localhost')],
         },
-        "ROUTING": "mysite.routing.channel_routing",
     },
 }
 
