@@ -83,3 +83,4 @@ selenium==3.141.0
 service-identity==18.1.0
 simplegeneric==0.8.1
 simplejson==3.16.0
+whitenoise==5.0.1
