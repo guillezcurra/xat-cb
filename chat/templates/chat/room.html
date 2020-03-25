@@ -19,11 +19,7 @@
             + window.location.host
             + '/ws/chat/'
             + roomName
-            + '/', {
-              protocolVersion: 8,
-              origin: 'https://' + window.location.host + '/ws/chat/' + roomName + '/',
-              rejectUnauthorized: false
-            });
+            + '/');
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
