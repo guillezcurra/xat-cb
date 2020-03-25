@@ -84,4 +84,3 @@ service-identity==18.1.0
 simplegeneric==0.8.1
 simplejson==3.16.0
 whitenoise==5.0.1
-django-sslify>=0.2.0
