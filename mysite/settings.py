@@ -25,7 +25,7 @@ SECRET_KEY = '@xzjkjr^p8hc3lhm3f#(!@hl^)w%jn*plg^)=-ul@uie=$ykw&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'xatdelcau.herokuapp.com', 'xatcau.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -45,6 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'sslify.middleware.SSLifyMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -118,7 +119,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 redis_host = os.environ.get('REDIS_HOST', 'localhost')
