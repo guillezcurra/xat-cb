@@ -44,7 +44,6 @@ def room(request, room_name):
     room, created = Room.objects.get_or_create(label=room_name)
     usuari = get_user(request)
     messages = reversed(room.messages.order_by('-timestamp')[:50])
-    
 
     if room_name == 'barrus':
       val = 'Barrufets'

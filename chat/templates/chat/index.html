@@ -6,7 +6,7 @@
     <title>Sales de xat de l'AEiG Conxita Busquets</title>
 </head>
 <body>
-    Benvingut, <b>{{ usuari.username }}</b><br>
+    Benvingut/da, <b>{{ usuari.username }}</b><br>
     A quina sala de xat vols entrar?<br>
     <!-- <input id="room-name-input" type="text" size="100"><br> -->
     <select form="rooms" id="room-name-input" autofocus>
@@ -17,7 +17,7 @@
       <option value="truc">Truc</option>
     </select>
     <input id="room-name-submit" type="button" value="Entra-hi">
-
+    <input id="tanca-sessio" type="button" value="Tanca la sessió">
     <script>
 
         document.querySelector('#room-name-input').focus();
@@ -30,6 +30,9 @@
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
+        };
+        document.querySelector('#tanca-sessio').onclick = function(e) {
+            window.location.pathname = '/accounts/logout';
         };
     </script>
 </body>
