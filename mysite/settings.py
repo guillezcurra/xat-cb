@@ -137,7 +137,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [(redis_host, 'localhost')],
+            "hosts": [('ec2-34-225-113-105.compute-1.amazonaws.com', 26519)],
         },
     },
 }
@@ -146,7 +146,7 @@ CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
         # By default use Docker Compose Redis instance.
-        'LOCATION': os.getenv('REDIS_URL', 'redis:6379'),
+        'LOCATION': os.environ.get('REDIS_URL'),
     },
 }
 
