@@ -16,6 +16,15 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
         await self.accept()
+        #enviar un missatge quan has entrat al grup
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                'type': 'login_message',
+                "username": self.scope["user"].username,
+                'message': self.scope["user"].username + ' ha entrat al xat.'
+            }
+        )
 
     async def disconnect(self, close_code):
         # Leave room group
