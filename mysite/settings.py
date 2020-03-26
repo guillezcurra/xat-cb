@@ -133,11 +133,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ASGI_APPLICATION = 'mysite.routing.application'
 # mysite/settings.py
 # Channels
+redis_url = urlparse(os.environ.get('REDIS_URL'))
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('ec2-34-225-113-105.compute-1.amazonaws.com', 26519)],
+            "hosts": [(redis_url.hostname, redis_url.port)],
         },
     },
 }
