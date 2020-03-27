@@ -14,11 +14,13 @@
     <title>Xat de l'AEiG Conxita Busquets</title>
 </head>
 <body>
+    <div class="container p-3 my-3 border">
     <p>
     Això és el xat de l'AEiG Conxita Busquets<br>
-    <input id="registre" type="button" value="Enregistra't">
-    <input id="inici-sessio" type="button" value="Inicia sessió">
+    <input id="registre" type="button" class="btn btn-warning" value="Enregistra't">
+    <input id="inici-sessio" type="button" class="btn btn-primary" value="Inicia sessió">
     </p>
+    </div>
     <script>
         document.querySelector('#registre').onclick = function(e) {
             window.location.pathname = '/register';
