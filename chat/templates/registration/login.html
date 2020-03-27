@@ -23,6 +23,7 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
   <div class="container p-3 my-3 border">
+    <p>
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
       <table>
@@ -38,6 +39,7 @@
       <input class="btn btn-primary" type="submit" value="Inicia Sessió" />
       <input type="hidden" name="next" value="{{next}}" />
     </form>
+    </p>
   </div>
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Has oblidat la clau d'accés?</a></p>
