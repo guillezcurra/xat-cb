@@ -24,21 +24,21 @@
       crossorigin="anonymous"></script>
   <div class="container p-3 my-3 border">
     <p>
-    <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-      <table>
-        <tr>
-          <td>Nom d'usuari: </td>
-          <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-          <td>Clau d'accés: </td>
-          <td>{{ form.password }}</td>
-        </tr>
-      </table>
-      <input class="btn btn-primary" type="submit" value="Inicia Sessió" />
-      <input type="hidden" name="next" value="{{next}}" />
-    </form>
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <td>Nom d'usuari: </td>
+            <td>{{ form.username }}</td>
+          </tr>
+          <tr>
+            <td>Clau d'accés: </td>
+            <td>{{ form.password }}</td>
+          </tr>
+        </table>
+        <input class="btn btn-primary" type="submit" value="Inicia Sessió" />
+        <input type="hidden" name="next" value="{{next}}" />
+      </form>
     </p>
   </div>
   {# Assumes you setup the password_reset view in your URLconf #}
