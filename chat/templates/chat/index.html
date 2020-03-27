@@ -3,6 +3,10 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <style>
+    h2 {text-align:center;}
+    p {text-align:center;}
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
@@ -11,19 +15,24 @@
     <title>Sales de xat de l'AEiG Conxita Busquets</title>
 </head>
 <body>
-    Benvingut/da, <b>{{ usuari.username }}</b>
-    <input id="tanca-sessio" type="button" value="Tanca la sessió"><br>
+    <div class="container p-3 my-3 border">
+      <p>
+      Benvingut/da, <b>{{ usuari.username }}</b>
+      <input id="tanca-sessio" type="button" class="btn btn-dark" value="Tanca la sessió"><br>
 
-    A quina sala de xat vols entrar?<br>
-    <!-- <input id="room-name-input" type="text" size="100"><br> -->
-    <select form="rooms" id="room-name-input" autofocus>
-      <option value="barrus">Barrufets</option>
-      <option value="tois">Tois i Daines</option>
-      <option value="ring">Ràngers i Noies Guia</option>
-      <option value="pic">Pioners i caravel·les</option>
-      <option value="truc">Truc</option>
-    </select>
-    <input id="room-name-submit" type="button" value="Entra-hi">
+      A quina sala de xat vols entrar?<br>
+      <!-- <input id="room-name-input" type="text" size="100"><br> -->
+      <select form="rooms" id="room-name-input" autofocus>
+        <option value="barrus">Barrufets</option>
+        <option value="tois">Tois i Daines</option>
+        <option value="ring">Ràngers i Noies Guia</option>
+        <option value="pic">Pioners i caravel·les</option>
+        <option value="truc">Truc</option>
+      </select>
+      <input id="room-name-submit" type="button" class="btn btn-primary" value="Entra-hi">
+      </p>
+    </div>
+
     <script>
 
         document.querySelector('#room-name-input').focus();
