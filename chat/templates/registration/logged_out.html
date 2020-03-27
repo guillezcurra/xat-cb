@@ -1,5 +1,22 @@
 {% block content %}
-  <p>Has tancat la sessió.</p>
-  <a href="{% url 'login'%}">Fes clic aquí per a iniciar una nova sessió.</a>
-  <a href="{% url 'register'%}">Fes clic aquí per a crear un nou usuari.</a>
+<style>
+h2 {text-align:center;}
+p {text-align:center;}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    <div class="container p-3 my-3 border">
+      <p>Has tancat la sessió. <br>
+      <input id="inici" class="btn btn-primary" type="submit" value="Inici" />
+      </p>
+    </div>
+
+<script>
+    document.querySelector('#inici').onclick = function(e) {
+        window.location.pathname = '/';
+    };
+</script>
 {% endblock %}
