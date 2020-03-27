@@ -21,7 +21,7 @@
     <textarea id="chat-log" cols="100" rows="20" readonly></textarea><br>
     <input id="chat-message-input" type="text" size="100">
     <input id="chat-message-submit" type="button" value="Envia"><br>
-    <div class="container p-3 my-3 border">
+    </div>
     {{ room_name|json_script:"room-name" }}
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
