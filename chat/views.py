@@ -53,6 +53,8 @@ def room(request, room_name):
       val = 'Ràngers i Noies Guia'
     elif room_name == 'pic':
         val = 'Pioners i Caravel·les'
+    elif room_name == 'general':
+        val = 'General'
     else:
       val = 'Truc'
     return render(request, 'chat/room.html', {
