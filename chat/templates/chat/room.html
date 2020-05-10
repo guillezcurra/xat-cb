@@ -62,10 +62,6 @@
 
         chatSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');
-            const message =  username + ' ha sortit del xat.';
-            chatSocket.send(JSON.stringify({
-                'message': message
-            }));
         };
         chatSocket.onopen = function(e) {
           const message =  username + ' ha entrat al xat.';
@@ -73,6 +69,12 @@
               'message': message
           }));
         };
+        window.addEventListener("beforeunload", function(event) {
+          const message =  username + ' ha sortit del xat.';
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+         });
 
 
         document.querySelector('#chat-message-input').focus();
@@ -81,7 +83,12 @@
                 document.querySelector('#chat-message-submit').click();
             }
         };
-
+        document.querySelector('#canvia-sala').onclick = function(e) {
+          const message =  username + ' ha sortit del xat.';
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+        }
         document.querySelector('#chat-message-submit').onclick = function(e) {
             const messageInputDom = document.querySelector('#chat-message-input');
             if(messageInputDom.value != '') {
