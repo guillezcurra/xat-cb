@@ -31,7 +31,7 @@
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
     <script>
-        var my_sound = new sound("bounce.mp3");
+        var my_sound = new sound('{% static "bounce.mp3" %}');
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
         const chatSocket = new ReconnectingWebSocket(
