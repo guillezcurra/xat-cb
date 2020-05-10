@@ -45,10 +45,6 @@
             + roomName
             + '/');
         const username = "{{user.get_username}}";
-        const message =  username + ' ha entrat al xat.';
-        chatSocket.send(JSON.stringify({
-            'message': message
-        }));
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             var textBox = document.getElementById('chat-log');
@@ -66,6 +62,13 @@
                 'message': message
             }));
         };
+        chatSocket.onopen = function(e) {
+          const message =  username + ' ha entrat al xat.';
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+        };
+
 
         document.querySelector('#chat-message-input').focus();
         document.querySelector('#chat-message-input').onkeyup = function(e) {
