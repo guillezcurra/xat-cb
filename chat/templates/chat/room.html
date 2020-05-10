@@ -48,8 +48,9 @@
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             var textBox = document.getElementById('chat-log');
-            messortida = data.username + " ha sortit del xat.";
-            if (data.message !== messortida && data.message !== messentrada) {
+            var missortida = data.username + " ha sortit del xat.";
+            var misentrada = data.username + " ha entrat al xat.";
+            if (data.message !== missortida && data.message !== misentrada) {
               document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
             }
             else {
@@ -57,7 +58,6 @@
             }
             textBox.scrollTop = textBox.scrollHeight;
             audioElement.play();
-            // document.querySelector('#chat-log').value += (data.message + '\n');
         };
 
         chatSocket.onclose = function(e) {
