@@ -44,7 +44,7 @@
             + '/ws/chat/'
             + roomName
             + '/');
-        const username = {{user.get_username}};
+        const username = "{{user.get_username}}";
         const message =  username + ' ha entrat al xat.';
         chatSocket.send(JSON.stringify({
             'message': message
