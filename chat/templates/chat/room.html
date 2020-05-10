@@ -29,7 +29,6 @@
     <input id="chat-message-submit" type="button" class="btn btn-primary" value="Envia"><br>
     </div>
     {{ room_name|json_script:"room-name" }}
-    {{ usuari|json_script:"usuari" }}
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
     <script>
@@ -37,7 +36,6 @@
         audioElement.src = "https://www.w3schools.com/graphics/bounce.mp3";
         // var my_sound = new sound('{% static "bounce.mp3" %}');
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-        const usuari = JSON.parse(document.getElementById('usuari'));
         var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
         const chatSocket = new ReconnectingWebSocket(
             ws_scheme
@@ -46,7 +44,7 @@
             + '/ws/chat/'
             + roomName
             + '/');
-        const message =  usuari.username + ' ha entrat al xat.';
+        const message =  user.get_username + ' ha entrat al xat.';
         chatSocket.send(JSON.stringify({
             'message': message
         }));
