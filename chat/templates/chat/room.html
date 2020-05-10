@@ -48,8 +48,13 @@
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             var textBox = document.getElementById('chat-log');
-
-            document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
+            messortida = data.username + " ha sortit del xat.";
+            if (data.message !== messortida && data.message !== messentrada) {
+              document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
+            }
+            else {
+              document.querySelector('#chat-log').value += (data.message + '\n');
+            }
             textBox.scrollTop = textBox.scrollHeight;
             audioElement.play();
             // document.querySelector('#chat-log').value += (data.message + '\n');
