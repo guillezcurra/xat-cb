@@ -46,7 +46,7 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            var textBox = document.getElementById('#chat-log');
+            var textBox = document.getElementById('chat-log');
 
             document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
             textBox.ScrollToEnd();
