@@ -46,8 +46,10 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
+            var textBox = document.getElementById('#chat-log');
+
             document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
-            document.querySelector('#chat-log').ScrollToEnd();
+            textBox.ScrollToEnd();
             audioElement.play();
             // document.querySelector('#chat-log').value += (data.message + '\n');
         };
