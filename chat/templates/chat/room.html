@@ -29,6 +29,7 @@
     <input id="chat-message-submit" type="button" class="btn btn-primary" value="Envia"><br>
     </div>
     {{ room_name|json_script:"room-name" }}
+    {{ usuari|json_script:"usuari" }}
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
     <script>
