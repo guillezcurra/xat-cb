@@ -125,7 +125,8 @@ redisurl = os.environ.get('REDIS_URL')
 redis_host = os.environ.get('REDIS_HOST', 'localhost')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+MEDIA_ROOT=os.path.join(BASE_DIR,"songdir")
+MEDIA_URL='/media/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
