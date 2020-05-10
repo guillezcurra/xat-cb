@@ -121,6 +121,7 @@ USE_TZ = True
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+redisurl = os.environ.get('REDIS_URL')
 redis_host = os.environ.get('REDIS_HOST', 'localhost')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -146,7 +147,7 @@ CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
         # By default use Docker Compose Redis instance.
-        'LOCATION': os.environ.get('REDIS_URL'),
+        'LOCATION': [(redisurl)],
     },
 }
 
