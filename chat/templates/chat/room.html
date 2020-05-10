@@ -94,17 +94,9 @@
             }
         };
         document.querySelector('#tanca-sessio').onclick = function(e) {
-            const message =  username + ' ha sortit del xat.';
-            chatSocket.send(JSON.stringify({
-                'message': message
-            }));
             window.location.pathname = '/accounts/logout';
         };
         document.querySelector('#canvia-sala').onclick = function(e) {
-            const message =  username + ' ha sortit del xat.';
-            chatSocket.send(JSON.stringify({
-                'message': message
-            }));
             window.location.pathname = '/chat';
         };
     </script>
