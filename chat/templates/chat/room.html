@@ -61,7 +61,7 @@
 
         chatSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');
-            const message =  ' ha sortit del xat.';
+            const message =  username + ' ha sortit del xat.';
             chatSocket.send(JSON.stringify({
                 'message': message
             }));
