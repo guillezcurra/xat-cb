@@ -44,7 +44,10 @@
             + '/ws/chat/'
             + roomName
             + '/');
-
+        const message =  usuari.username + ' ha entrat al xat.';
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             var textBox = document.getElementById('chat-log');
@@ -57,6 +60,10 @@
 
         chatSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');
+            const message =  ' ha sortit del xat.';
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
         };
 
         document.querySelector('#chat-message-input').focus();
