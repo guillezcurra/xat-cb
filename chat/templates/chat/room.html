@@ -37,7 +37,7 @@
         audioElement.src = "https://www.w3schools.com/graphics/bounce.mp3";
         // var my_sound = new sound('{% static "bounce.mp3" %}');
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-        const usuari = JSON.parse(document.getElementById('usuari').textContent);
+        const usuari = JSON.parse(document.getElementById('usuari'));
         var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
         const chatSocket = new ReconnectingWebSocket(
             ws_scheme
