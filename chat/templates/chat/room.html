@@ -31,6 +31,8 @@
     <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
     <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
     <script>
+        var audioElement = document.createElement("audio");
+        audioElement.src = "https://www.w3schools.com/graphics/bounce.mp3";
         // var my_sound = new sound('{% static "bounce.mp3" %}');
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
@@ -45,7 +47,7 @@
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             document.querySelector('#chat-log').value += (data.username + ': ' + data.message + '\n');
-            // mySound.play();
+            audioElement.play();
             // document.querySelector('#chat-log').value += (data.message + '\n');
         };
 
