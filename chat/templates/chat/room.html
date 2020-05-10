@@ -83,12 +83,6 @@
                 document.querySelector('#chat-message-submit').click();
             }
         };
-        document.querySelector('#canvia-sala').onclick = function(e) {
-          const message =  username + ' ha sortit del xat.';
-          chatSocket.send(JSON.stringify({
-              'message': message
-          }));
-        }
         document.querySelector('#chat-message-submit').onclick = function(e) {
             const messageInputDom = document.querySelector('#chat-message-input');
             if(messageInputDom.value != '') {
@@ -100,9 +94,17 @@
             }
         };
         document.querySelector('#tanca-sessio').onclick = function(e) {
+            const message =  username + ' ha sortit del xat.';
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
             window.location.pathname = '/accounts/logout';
         };
         document.querySelector('#canvia-sala').onclick = function(e) {
+            const message =  username + ' ha sortit del xat.';
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
             window.location.pathname = '/chat';
         };
     </script>
