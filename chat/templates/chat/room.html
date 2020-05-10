@@ -69,7 +69,7 @@
               'message': message
           }));
         };
-        window.addEventListener("beforeunload", function(event) {
+        window.addEventListener("beforeunload", function(e) {
           const message =  username + ' ha sortit del xat.';
           chatSocket.send(JSON.stringify({
               'message': message
